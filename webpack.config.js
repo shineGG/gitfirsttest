@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     // entry: './src/main.js',
@@ -17,6 +18,13 @@ module.exports = {
                 test: /\.html$/,
                 loader: 'html-loader',
             },
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader']
+                })  // 单独打包出CSS，这里配置注意下
+            },
         ]
     },
     devServer: {
@@ -32,7 +40,8 @@ module.exports = {
             template: 'index.html',
             inject: true
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin("css/[name].css")
     ],
     node: {
         fs: "empty"
