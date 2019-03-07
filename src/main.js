@@ -1,6 +1,6 @@
 var ggT = require('./my_modules/ggT.js');
 var index = require('./page/index.html');
-require('./page/index.css');
+require('./asset/css/index.css.js');//接收css
 
 
 function data() {
