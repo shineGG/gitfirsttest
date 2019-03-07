@@ -3,14 +3,12 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    // entry: './src/main.js',
     entry: {
         app: './src/main.js'
     },
     output: {
         filename: 'js/[name].js',
         path: __dirname + '/dist',
-        // publicPath: '/'
     },
     module: {
         rules: [
@@ -23,7 +21,7 @@ module.exports = {
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: ['css-loader']
-                })  // 单独打包出CSS，这里配置注意下
+                })  // 单独打包出CSS
             },
         ]
     },
@@ -41,7 +39,7 @@ module.exports = {
             inject: true
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("css/[name].css")
+        new ExtractTextPlugin("css/[name].css")//单独打包出css文件
     ],
     node: {
         fs: "empty"

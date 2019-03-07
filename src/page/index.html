@@ -1,7 +1,19 @@
 <!-- <template> -->
-    <div style="text-align: center;">
-        <div>
-            <p style="font-size: 30px;">hai~ 个人项目框架测试测试！哈哈……！</p>
-        </div>
+<div style="text-align: center;">
+    <div>
+        <p style="font-size: 30px;">hai~ 个人项目框架测试测试！哈哈……！</p>
     </div>
+    <button id="me">点击我111</button>
+</div>
+<script>
+    module.exports = function () {
+        console.log('ssssssssssssssssssssss');
+        let c = document.getElementById('me');
+        c.onclick = function () {
+            gg.router({
+                name: 'hello'
+            });
+        }
+    }
+</script>
 <!-- </template> -->
