@@ -4,5 +4,5 @@ npm install
 # build 
 npm run build
 
-#development environment test
+# development environment test
 npm start
