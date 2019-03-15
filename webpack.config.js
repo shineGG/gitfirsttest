@@ -1,13 +1,13 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { entryConfig, HtmlPluginConfig } = require('./build/build.js');
 
 var config = {
     // entry: {
-    //     app: './src/main.js'
+    //     app: './src/main.js'//单页应用
     // },
-    entry: entryConfig,
+    entry: entryConfig,//多页应用
     output: {
         filename: 'js/[name].js',
         path: __dirname + '/dist',
@@ -50,7 +50,7 @@ var config = {
     }
 
 };
-config.plugins.push(...HtmlPluginConfig);
+config.plugins.push(...HtmlPluginConfig);//多页应用
 
 
 module.exports = config;

@@ -8,11 +8,12 @@ var glob = require("glob");
 var path = require("path");
 
 
-exports.getView = function (globPath,flag){
+exports.getView = function (globPath) {
     let files = glob.sync(globPath);
 
     let entries = {},
-    entry, dirname, basename, pathname, extname;
+        entry, dirname, basename, pathname, extname;
+    let cssFile = [];
 
     files.forEach(item => {
         entry = item;
@@ -24,8 +25,10 @@ exports.getView = function (globPath,flag){
             entries[pathname] = './' + entry;
         } else if (extname === '.js') {
             entries[basename] = entry;
+        } else if (extname === '.css') {
+            entries[pathname] = './' + entry;
         }
     });
-
+    // console.log(entries);
     return entries;
 }
