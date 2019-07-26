@@ -9,7 +9,7 @@ getJsFileName.forEach((jsFileName) => {//自动化引入css文件，不需要在
     let cssSource = "require(" + "'../asset/css/" + jsFileName + ".css')";
     let reg = new RegExp("cssSource", "g");
     if (!reg.test(data)) {
-        data = cssSource + "//自动引入cssSource文件" + data;
+        data = cssSource + ";/*自动引入cssSource文件*/\n" + data;
         console.log("不存在");
     } else {
         console.log("已存在");//防止重复引入css文件
